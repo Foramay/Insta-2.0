@@ -1,0 +1,8 @@
+*.pyc
+src/app/settings/local.py
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.svg
