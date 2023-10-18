@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Posts
 from django.urls import reverse
 from .forms import PostForm
@@ -15,5 +15,14 @@ class CreatePost(LoginRequiredMixin, CreateView):
         form.instance.usuario = self.request.user  # Obtenemos el nombre del usuario
         return super().form_valid(form)
     
+    def get_success_url(self):
+        return reverse('home')
+    
+
+class UpdatePost(LoginRequiredMixin, UpdateView):
+    template_name = 'posts/update_post.html'
+    model = Posts
+    form_class = PostForm
+
     def get_success_url(self):
         return reverse('home')

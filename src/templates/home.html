@@ -23,6 +23,7 @@
             <div>
                 <h3>{{p.descripcion}}</h3>
                 <h4>{{p.usuario.username}}</h4>
+                <a href="{% url 'posts:update_post' p.id %}">Actualizar</a>
             </div>
         {% endfor %}
             
