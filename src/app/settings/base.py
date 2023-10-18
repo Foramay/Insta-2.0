@@ -29,10 +29,10 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
-#Acá le decimos a Django a que html redireccionar cuando el usuario se loguea
+#Here I tell Django which HTML page to redirect to when the user logs in.
+LOGIN_REDIRECT_URL = 'profile'
 
-LOGIN_REDIRECT_URL = 'home'
-
+#Here I specify the HTML page to redirect to upon logging out.
 LOGIN_URL = '/login'
 
 # Application definition
