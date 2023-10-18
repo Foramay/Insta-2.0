@@ -11,5 +11,10 @@ urlpatterns = [
 
 
     #Includes de usuarios
-    path('usuario/', include('usuarios.urls'))
+    path('usuario/', include('usuarios.urls')),
+
+
+
+    #Includes de posts
+    path('post/', include('posts.urls'))
 ]
