@@ -1,6 +1,6 @@
 <h1>Confirmar Eliminación</h1>
     <p>¿Estás seguro de que deseas eliminar esta publicación?</p>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <button type="submit">Sí, Eliminar</button>
     </form>
