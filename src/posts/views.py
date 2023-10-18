@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Posts
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .forms import PostForm
 
 class CreatePost(LoginRequiredMixin, CreateView):
@@ -26,3 +26,9 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('home')
+    
+
+class DeletePost(LoginRequiredMixin, DeleteView):
+    model = Posts
+    template_name = 'posts/delete_post.html'
+    success_url = reverse_lazy('home')
