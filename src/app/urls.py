@@ -18,5 +18,9 @@ urlpatterns = [
 
 
     #Includes de posts
-    path('post/', include('posts.urls'))
+    path('post/', include('posts.urls')),
+
+
+    #Includes de comments
+    path('comment/', include('comment.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
