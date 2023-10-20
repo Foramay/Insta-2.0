@@ -7,5 +7,19 @@
 </head>
 <body>
     <h1>Perfil de usuario</h1>
+
+    <ul>
+        {% for post in user_posts %}
+
+        <img src="{{post.imagen.url}}" alt="">
+          <li>
+            {{ post.descripcion }}<br>
+            Autor: {{ post.usuario.username }}
+          </li>
+        {% empty %}
+          <li>No hay publicaciones aún.</li>
+        {% endfor %}
+      </ul>
+
 </body>
 </html>

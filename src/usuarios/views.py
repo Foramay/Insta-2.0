@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
-
+from posts.models import Posts
 
 def register(request):
     if request.method == 'POST':
@@ -18,5 +18,15 @@ def register(request):
 
 @login_required
 def profile(request):
+    #Acá le decimos con que html vamos a trabajar
     template_name = 'usuarios/profile.html'
-    return render(request, template_name, {})
+    #Acá recuperamos el id del usuario logueado
+    user_id = request.user.id
+    #Filtramos todos los posts del usuario logueado
+    user_posts = Posts.objects.filter(usuario_id=user_id)
+
+    #Y lo pasamos a través de un contexto
+    context = {
+        'user_posts': user_posts,
+    }
+    return render(request, template_name, context)
