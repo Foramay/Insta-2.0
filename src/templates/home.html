@@ -28,8 +28,9 @@
                 {% else %}
                     <h1>No hay imagen</h1>
                 {% endif %}
-                    
-                <h4>{{p.usuario.username}}</h4>
+                <a href="{% url 'user:profile' p.usuario.username %}">
+                    <h4>{{p.usuario.username}}</h4>
+                </a>
                 <h3>{{p.descripcion}}</h3>
                 <a href="{% url 'posts:update_post' p.id %}">Editar</a>
                 <a href="{% url 'posts:delete_post' p.id %}">Eliminar</a>

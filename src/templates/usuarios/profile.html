@@ -6,10 +6,10 @@
     <title>Insta</title>
 </head>
 <body>
-    <h1>Perfil de usuario</h1>
+    <h1>Perfil de usuario de {{user.username}}</h1>
 
     <ul>
-        {% for post in user_posts %}
+        {% for post in posts %}
 
         <img src="{{post.imagen.url}}" alt="">
           <li>
