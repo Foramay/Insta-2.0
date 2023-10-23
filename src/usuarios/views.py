@@ -4,7 +4,9 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from posts.models import Posts
-from .models import Usuario
+from .models import Usuario, Relationship
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def register(request):
     if request.method == 'POST':
@@ -33,4 +35,24 @@ def profile(request, username=None):
     #Y si no es el mismo, mostramos esto
         user = user_logueado
         posts = Posts.objects.filter(usuario_id=user_logueado.id)
+
+
+        
     return render(request, template_name, {'user': user, 'posts': posts})
+
+
+def follow(request, username):
+    current_user = request.user
+    to_user = Usuario.objects.get(username=username)
+    to_user_id = to_user
+    rel = Relationship(from_user=current_user, to_user=to_user_id)
+    rel.save()
+    return HttpResponseRedirect(reverse('user:profile', kwargs={'username': username}))
+
+def unfollow(request, username):
+    current_user = request.user
+    to_user = Usuario.objects.get(username=username)
+    to_user_id = to_user.id
+    rel = Relationship.objects.filter(from_user=current_user.id, to_user=to_user_id).get()
+    rel.delete()
+    return HttpResponseRedirect(reverse('user:profile', kwargs={'username': username}))

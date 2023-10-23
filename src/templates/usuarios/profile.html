@@ -7,6 +7,26 @@
 </head>
 <body>
     <h1>Perfil de usuario de {{user.username}}</h1>
+    {% if request.user.is_authenticated %}
+      
+      {% if user.username != request.user.username %}
+        {% if user not in request.user.following %}
+          {{request.user.username}} Queres seguir a {{user.username}}
+          <a href="{% url 'user:follow' user %}">Follow</a>
+        {% else %}
+          <a href="{% url 'user:unfollow' user %}">UnFollow</a>
+        {% endif %}  
+
+      {% endif %}
+        
+    {% endif %}
+      
+
+    <h5>Followers</h5>
+    <p>{{user.followers.count}}</p>
+
+    <h5>Following</h5>
+    <p>{{user.following.count}}</p>
 
     <ul>
         {% for post in posts %}
