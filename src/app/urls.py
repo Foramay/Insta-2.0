@@ -13,7 +13,7 @@ urlpatterns = [
 
 
     #Includes de usuarios
-    path('usuario/', include('usuarios.urls')),
+    path('', include('usuarios.urls')),
 
 
 
