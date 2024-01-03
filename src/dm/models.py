@@ -22,6 +22,9 @@ class CanalUsuario(ModelBase):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 class CanalQuerySet(models.QuerySet):
+    def solo_uno(self):
+        return self.annotate(num_usuarios=Count("usuarios")).filter(num_usuarios=1)
+    
     def solo_dos(self):
         return self.annotate(num_usuarios=Count("usuarios")).filter(num_usuarios=2)
 
@@ -31,3 +34,4 @@ class CanalManager(models.Manager):
 
 class Canal(ModelBase):
     usuarios = models.ManyToManyField(Usuario, blank=True, through=CanalUsuario)
+    objects = CanalManager()
