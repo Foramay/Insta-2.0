@@ -12,7 +12,14 @@ class ModelBase(models.Model):
         abstract = True
 
 
-class Mensaje(ModelBase):
+class CanalMensaje(ModelBase):
+    canal = models.ForeignKey("Canal", on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     texto = models.TextField()
-    
+
+class CanalUsuario(ModelBase):
+    canal = models.ForeignKey("Canal", null=True, on_delete=models.SET_NULL)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+class Canal(ModelBase):
+    usuarios = models.ManyToManyField(Usuario, blank=True, through=CanalUsuario)
