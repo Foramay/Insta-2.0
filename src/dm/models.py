@@ -3,6 +3,7 @@ import uuid
 from usuarios.models import Usuario
 from django.db.models import Count
 
+
 class ModelBase(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, db_index=True, editable=False)
     tiempo = models.DateTimeField(auto_now_add=True)
@@ -38,6 +39,18 @@ class CanalManager(models.Manager):
     def filtrar_ms_por_privado(self, username_a, username_b):
         return self.get_queryset().solo_dos().filtrar_por_username(username_a).filtrar_por_username(username_b)
 
+    def obtener_o_crear_canal_ms(self, username_a, username_b):
+        qs = self.filtrar_ms_por_privado(username_a, username_b)
+        if qs.exists():
+            return qs.order_by('tiempo').first(), False
+
+        obj_canal = Canal.objects.create()
+
+        canal_usuario_a = CanalUsuario(usuario=Usuario.objects.get(username=username_a), canal=obj_canal)
+        canal_usuario_b = CanalUsuario(usuario=Usuario.objects.get(username=username_b), canal=obj_canal)
+        CanalUsuario.objects.bulk_create([canal_usuario_a, canal_usuario_b])
+
+        return obj_canal, True
 
 class Canal(ModelBase):
     usuarios = models.ManyToManyField(Usuario, blank=True, through=CanalUsuario)
