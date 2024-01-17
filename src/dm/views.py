@@ -3,7 +3,7 @@ from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Canal, CanalMensaje, CanalUsuario
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -13,7 +13,8 @@ class DetailMs(LoginRequiredMixin, DetailView):
         username = self.kwargs.get('username')
         mi_username = self.request.user.username
         canal, _ = Canal.objects.obtener_o_crear_canal_ms(mi_username, username)
-        
+        if canal == None:
+            raise Http404
         return canal
  
 

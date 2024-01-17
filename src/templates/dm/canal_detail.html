@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta</title>
+</head>
+<body>
+    <main>
+        <h4>Identificador del canal - '{{object.id}}'</h4>
+
+        
+
+        <h4>mensajes del canal</h4>
+        {% for mensaje in object.canalmensaje_set.all %}
+
+            
+            {% if request.user == mensaje.usuario %}
+                <p>
+                    <span style="color: red;">
+                        Lo envie yo:
+                    </span>
+                    {{mensaje.texto}}
+                </p>
+            {% else %}
+                <p style="color: red;">
+                    {{mensaje.usuario}}:
+                    <span style="color: black;">
+                        {{mensaje.texto}}
+                    </span>
+                </p>
+            {% endif %}
+                
+        {% endfor %}
+            
+    
+    
+        <h4>Usuarios del canal</h4>
+        {% for usuarios in object.canalusuario_set.all %}
+            <p>
+                {{usuarios.usuario}}
+            </p>
+
+        {% endfor %}
+            
+    
+    </main>
+</body>
+</html>

@@ -43,6 +43,21 @@ class CanalManager(models.Manager):
         qs = self.filtrar_ms_por_privado(username_a, username_b)
         if qs.exists():
             return qs.order_by('tiempo').first(), False
+        
+        usuario_a, usuario_b = None, None
+
+        try:
+            usuario_a = Usuario.objects.get(username=username_a)
+        except Usuario.DoesNotExist:
+            return None, False
+
+        try:
+            usuario_b = Usuario.objects.get(username=username_b)
+        except Usuario.DoesNotExist:
+            return None, False
+        
+        if usuario_a == None or usuario_b == None:
+            return None, False
 
         obj_canal = Canal.objects.create()
 
