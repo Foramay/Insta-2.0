@@ -6,6 +6,30 @@ from .models import Canal, CanalMensaje, CanalUsuario
 from django.http import HttpResponse, Http404
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
+
+class CanalDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'dm/canal_detail.html'
+    queryset = Canal.objects.all()
+
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        obj = context['object']
+        print(obj)
+
+        #if self.request.user not in obj.usuarios.all():
+         #   raise PermissionDenied
+        context['si_canal_miembro']
+        return context
+    
+
+    #def get_queryset(self):
+     #   usuario = self.request.user
+      #  username = usuario.username
+       # qs = Canal.objects.all().filtrar_por_username(username)
+        #return qs
+
 
 class DetailMs(LoginRequiredMixin, DetailView):
     template_name = 'dm/canal_detail.html'
