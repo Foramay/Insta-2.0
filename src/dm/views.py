@@ -20,7 +20,7 @@ class CanalDetailView(LoginRequiredMixin, DetailView):
 
         #if self.request.user not in obj.usuarios.all():
          #   raise PermissionDenied
-        context['si_canal_miembro']
+        context['si_canal_miembro'] = self.request.user in obj.usuarios.all()
         return context
     
 
