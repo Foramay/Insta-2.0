@@ -43,7 +43,14 @@
 
         {% endfor %}
             
-    
+
+    <form action="{{request.path}}" method="POST">
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <button type="submit">Enviar</button>
+    </form>
+
     </main>
 </body>
 </html>
