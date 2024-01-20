@@ -39,6 +39,15 @@ class CanalManager(models.Manager):
     def filtrar_ms_por_privado(self, username_a, username_b):
         return self.get_queryset().solo_dos().filtrar_por_username(username_a).filtrar_por_username(username_b)
 
+    def obtener_o_crear_canal_usuario_actual(self, user):
+        qs = self.get_queryset().solo_uno().filtrar_por_username(user.username)
+        if qs.exists():
+            return qs.order_by('tiempo').first, False
+
+        canal_obj = Canal.objects.create()
+        CanalUsuario.objects.create(usuario=user, canal=canal_obj)
+        return canal_obj, True
+
     def obtener_o_crear_canal_ms(self, username_a, username_b):
         qs = self.filtrar_ms_por_privado(username_a, username_b)
         if qs.exists():

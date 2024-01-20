@@ -13,6 +13,10 @@ class DetailMs(LoginRequiredMixin, DetailView):
         username = self.kwargs.get('username')
         mi_username = self.request.user.username
         canal, _ = Canal.objects.obtener_o_crear_canal_ms(mi_username, username)
+        if username == mi_username:
+            mi_canal, _ = Canal.objects.obtener_o_crear_canal_usuario_actual(self.request.user)
+            return mi_canal
+        
         if canal == None:
             raise Http404
         return canal
