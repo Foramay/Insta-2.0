@@ -4,11 +4,22 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Canal, CanalMensaje, CanalUsuario
 from django.http import HttpResponse, Http404, JsonResponse
-from django.views.generic import DetailView
+from django.views.generic import DetailView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from .forms import FormMensajes
 from django.views.generic.edit import FormMixin
+
+class Inbox(View):
+    def get(self, request):
+        inbox = Canal.objects.filter(canalusuario__usuario__in=[request.user.id])
+
+        context = {
+            'inbox': inbox
+        }
+        return render(request, 'dm/inbox.html', context)
+
+
 
 class CanalFormMixin(FormMixin):
     form_class = FormMensajes
@@ -61,7 +72,7 @@ class CanalDetailView(LoginRequiredMixin, CanalFormMixin, DetailView):
         #return qs
 
 
-class DetailMs(LoginRequiredMixin, DetailView):
+class DetailMs(LoginRequiredMixin, CanalFormMixin, DetailView):
     template_name = 'dm/canal_detail.html'
     def get_object(self, *args, **kwargs):
         username = self.kwargs.get('username')
