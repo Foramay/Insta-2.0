@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+
+.contenedor-instagram-profile-usuario{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    display: flex;
+    overflow: hidden;
+}
+
+.contenedor-botones-interaccion-profile{
+    width: 25%;
+    margin: 5px 10px;
+    height: 90%;
+    flex: 0 0 auto; /* Establece el contenedor-1 como fijo */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.botones-interaccion-profile{
+    width: 90%;
+    margin: 5px auto;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-interaccion{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.botones-interaccion:hover{
+    cursor: pointer;
+    background-color: gainsboro;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(197, 197, 197);
+}
+
+.botones-interaccion i{
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.botones-interaccion:hover i{
+    color: black;
+    transform: scale(1.2);
+}
+
+.botones-interaccion h1{
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin-left: 10px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal
+}
+
+.botones-interaccion:hover h1{
+    color: black;
+}
+
+
+/*Todo hecho*/
+
+
+
+
+
+.contenedor-profile-usuario{
+    flex: 1; 
+    overflow-y: auto; 
+}
