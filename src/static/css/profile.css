@@ -68,7 +68,7 @@ body{
     font-family: "Exo 2", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-style: normal
+    font-style: normal;
 }
 
 .botones-interaccion:hover h1{
@@ -85,4 +85,174 @@ body{
 .contenedor-profile-usuario{
     flex: 1; 
     overflow-y: auto; 
+}
+
+.contenedor-informacion-profile-usuario{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contenedor-imagen-perfil-usuario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.imagen-perfil-usuario{
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.3s ease;
+}
+
+.imagen-perfil-usuario:hover{
+    cursor: pointer;
+    filter: grayscale(50%);
+}
+
+.contenedor-informacion-usuario{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-seccion-perfil-usuario{
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-nombre-del-usuario{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-boton-editar-perfil{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.boton-editar-perfil{
+    background-color: gainsboro;
+    border: none;
+    height: 30px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+.boton-editar-perfil:hover{
+    background-color: rgb(170, 170, 170);
+    cursor: pointer;
+}
+.contenedor-boton-ver-archivo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.boton-ver-archivo{
+    background-color: gainsboro;
+    border: none;
+    height: 30px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.boton-ver-archivo:hover{
+    background-color: rgb(170, 170, 170);
+    cursor: pointer;
+}
+.contenedor-boton-settings{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-boton-settings i{
+    font-size: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contenedor-boton-settings:hover i{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.contenedor-informacion-seguidores-seguidos{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.contenedor-contador-publicaciones{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+}
+.contenedor-contador-publicaciones h1{
+    color: black;
+    font-size: 15px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+.contenedor-seguidores{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+}
+.contenedor-seguidores h1{
+    color: black;
+    font-size: 15px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+.contenedor-seguidos{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+}
+.contenedor-seguidos h1{
+    color: black;
+    font-size: 15px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.contenedor-descripcion-del-usuario{
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.descripcion-del-usuario{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 5px 5px;
 }
