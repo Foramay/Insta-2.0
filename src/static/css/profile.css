@@ -3,7 +3,9 @@ body{
     padding: 0;
     height: 0;
 }
-
+.redireccion-botones-interaccion{
+    text-decoration: none;
+}
 .contenedor-instagram-profile-usuario{
     background-color: white;
     width: 100%;
@@ -255,4 +257,36 @@ body{
     font-weight: 500;
     font-style: normal;
     margin: 5px 5px;
+}
+
+
+
+/* La parte de las publicaciones del usuario*/
+
+
+.contenedor-publicaciones-profile-usuario{
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.publicacion-usuario{
+    width: 250px;
+    height: 250px;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin: 5px;
+    transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
+}
+
+.publicacion-usuario:hover{
+    cursor: pointer;
+    filter: grayscale(50%);
+    transform: scale(1.03);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.555);
 }

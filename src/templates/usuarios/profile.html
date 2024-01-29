@@ -17,49 +17,59 @@
       
       <section class="contenedor-botones-interaccion-profile">
 
+        <a class="redireccion-botones-interaccion" href="{% url 'home' %}">
         <article class="botones-interaccion-profile">
           <div class="botones-interaccion">
             <i class="fa-solid fa-house"></i>
-            <h1>Inicio</h1>
-          </div>
-        </article>
-        
+              <h1>Inicio</h1>
+            </div>
+          </article>
+        </a>
+          
+        <a class="redireccion-botones-interaccion" href="">
+          <article class="botones-interaccion-profile">
+            <div class="botones-interaccion">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <h1>Buscar</h1>
+            </div>
+          </article>
+        </a>
 
-        <article class="botones-interaccion-profile">
-          <div class="botones-interaccion">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <h1>Buscar</h1>
-          </div>
-        </article>
+        <a class="redireccion-botones-interaccion" href="{% url 'dm:inbox' %}">
+          <article class="botones-interaccion-profile">
+            <div class="botones-interaccion">
+              <i class="fa-solid fa-message"></i>
+              <h1>Mensajes</h1>
+            </div>
+          </article>
+        </a>
 
+        <a class="redireccion-botones-interaccion" href="">  
+          <article class="botones-interaccion-profile">
+            <div class="botones-interaccion">
+              <i class="fa-solid fa-bell"></i>
+              <h1>Notificaciones</h1>
+            </div>
+          </article>
+        </a>
 
-        <article class="botones-interaccion-profile">
-          <div class="botones-interaccion">
-            <i class="fa-solid fa-message"></i>
-            <h1>Mensajes</h1>
-          </div>
-        </article>
+        <a class="redireccion-botones-interaccion" href="">
+          <article class="botones-interaccion-profile">
+            <div class="botones-interaccion">
+              <i class="fa-solid fa-square-plus"></i>
+              <h1>Crear</h1>
+            </div>
+          </article>
+        </a>
 
-        <article class="botones-interaccion-profile">
-          <div class="botones-interaccion">
-            <i class="fa-solid fa-bell"></i>
-            <h1>Notificaciones</h1>
-          </div>
-        </article>
-
-        <article class="botones-interaccion-profile">
-          <div class="botones-interaccion">
-            <i class="fa-solid fa-square-plus"></i>
-            <h1>Crear</h1>
-          </div>
-        </article>
-
-        <article class="botones-interaccion-profile">
-          <div class="botones-interaccion">
-            <i class="fa-solid fa-user"></i>
-            <h1>Perfil</h1>
-          </div>
-        </article>
+        <a class="redireccion-botones-interaccion" href="">
+          <article class="botones-interaccion-profile">
+            <div class="botones-interaccion">
+              <i class="fa-solid fa-user"></i>
+              <h1>Perfil</h1>
+            </div>
+          </article>
+        </a>
 
         
       </section>
@@ -71,12 +81,12 @@
         <article class="contenedor-informacion-profile-usuario">
           <div class="contenedor-imagen-perfil-usuario">
             <h1 class="imagen-perfil-usuario">Imagen de perfil</h1>
+            
           </div>
 
           <div class="contenedor-informacion-usuario">
             <!---->
             <div class="contenedor-seccion-perfil-usuario">
-
               <div class="contenedor-nombre-del-usuario">
                 <h1 class="nombre-del-usuario">David Forastier</h1>
               </div>
@@ -121,11 +131,17 @@
         </article>
         
         <!---->
-        <article>
-          <div>
-            <img src="{% static 'img/messi.jpg' %}" alt="">
+        <article class="contenedor-publicaciones-profile-usuario">
+
+          <div class="contenedor-publicaciones-usuario">
+            <img class="publicacion-usuario" src="{% static 'img/messi.jpg' %}" alt="">
+
+           
           </div>
+          
         </article>
+
+        
       </section>
     </main>
 </body>
