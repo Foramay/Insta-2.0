@@ -5,44 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insta</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Hola {{user}}</h1>
-    <a href="{% url 'posts:crear_post' %}">crear post</a>
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">Loguearse</a>
-    {% endif %}
-        
-
-    <!--Esta seria la parte de las publicaciones de los usuarios-->
-    <h2>Publicaciones</h2>
-    <div>
-        <!--Acá iteramos todos los registros que hay en la base de datos de posts-->
-        {% for p in posts %}
-            <div>
-                
-                {% if p.imagen %}                
-                    <img src="{{p.imagen.url}}" alt="">
-                {% else %}
-                    <h1>No hay imagen</h1>
-                {% endif %}
-                <a href="{% url 'user:profile' p.usuario.username %}">
-                    <h4>{{p.usuario.username}}</h4>
+    <main class="contenedor-instagram-home">
+        <!---->
+        <section class="contenedor-botones-interaccion-profile">
+            <a class="redireccion-botones-interaccion" href="{% url 'home' %}">
+                <article class="botones-interaccion-home">
+                  <div class="botones-interaccion">
+                    <i class="fa-solid fa-house"></i>
+                      <h1>Inicio</h1>
+                    </div>
+                  </article>
                 </a>
-                <h3>{{p.descripcion}}</h3>
-                <a href="{% url 'posts:update_post' p.id %}">Editar</a>
-                <a href="{% url 'posts:delete_post' p.id %}">Eliminar</a>
-            </div>
+                  
+                <a class="redireccion-botones-interaccion" href="">
+                  <article class="botones-interaccion-home">
+                    <div class="botones-interaccion">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <h1>Buscar</h1>
+                    </div>
+                  </article>
+                </a>
+        
+                <a class="redireccion-botones-interaccion" href="{% url 'dm:inbox' %}">
+                  <article class="botones-interaccion-home">
+                    <div class="botones-interaccion">
+                      <i class="fa-solid fa-message"></i>
+                      <h1>Mensajes</h1>
+                    </div>
+                  </article>
+                </a>
+        
+                <a class="redireccion-botones-interaccion" href="">  
+                  <article class="botones-interaccion-home">
+                    <div class="botones-interaccion">
+                      <i class="fa-solid fa-bell"></i>
+                      <h1>Notificaciones</h1>
+                    </div>
+                  </article>
+                </a>
+        
+                <a class="redireccion-botones-interaccion" href="">
+                  <article class="botones-interaccion-home">
+                    <div class="botones-interaccion">
+                      <i class="fa-solid fa-square-plus"></i>
+                      <h1>Crear</h1>
+                    </div>
+                  </article>
+                </a>
+        
+                <a class="redireccion-botones-interaccion" href="{% url 'user:profile' %}">
+                  <article class="botones-interaccion-home">
+                    <div class="botones-interaccion">
+                      <i class="fa-solid fa-user"></i>
+                      <h1>Perfil</h1>
+                    </div>
+                  </article>
+                </a>
+        
+        </section>
+
+        <!---->
+
+        <section class="contenedor-post-usuario">
+            <article class="contenedor-post">
+                <!---->
+                <div class="contenedor-header-post">
+                    <div class="contenedor-imagen-usuario-post">
+                        <img class="imagen-usuario-post" src="{% static 'img/messi.jpg' %}" alt="">
+                    </div>
+                    <div class="contenedor-nombre-usuario-post">
+                        <h1>David Forastier</h1>
+                    </div>
+                </div>
+                <!---->
             
-                <form action="{% url 'comments:comment' p.id %}" method="POST">
-                    {% csrf_token %}
-                    <textarea name="comment" id="{{ p.id }}" name="pk"></textarea>
-                    <button type="submit">Comentar</button>
-                </form>
-            {% endfor %}
+                <div class="contenedor-imagen-post-home">
+                    <img class="imagen-post-home" src="{% static 'img/messi.jpg' %}" alt="">
+                </div>
+                
+                <div class="contenedor-textarea-btn-comentar">
+                    <textarea class="textarea-post-home" name="" id="" cols="30" rows="10" placeholder="Escribe un comentario..."></textarea>
+                
+                    <button class="btn-comentar-post-home">Comentar</button>
+                </div>
+            </article>
+
+
+
             
-    </div>
+        </section>
+    </main>
 </body>
 </html>

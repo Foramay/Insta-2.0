@@ -1,0 +1,195 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+
+.redireccion-botones-interaccion{
+    text-decoration: none;
+}
+.contenedor-instagram-home{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    display: flex;
+    overflow: hidden;
+}
+
+.contenedor-botones-interaccion-profile{
+    width: 25%;
+    margin: 5px 10px;
+    height: 90%;
+    flex: 0 0 auto; /* Establece el contenedor-1 como fijo */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    grid-gap: 10px;
+    border-right: 1px solid gray;
+}
+
+.botones-interaccion-home{
+    width: 90%;
+    margin: 5px auto;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-interaccion{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.botones-interaccion:hover{
+    cursor: pointer;
+    background-color: gainsboro;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(197, 197, 197);
+}
+
+.botones-interaccion i{
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.botones-interaccion:hover i{
+    color: black;
+    transform: scale(1.2);
+}
+
+.botones-interaccion h1{
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin-left: 10px;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.botones-interaccion:hover h1{
+    color: black;
+}
+
+
+/**/
+
+.contenedor-post-usuario{
+    flex: 1; 
+    overflow-y: auto; 
+}
+
+
+.contenedor-post{
+    width: 50%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.contenedor-post:hover{
+    transform: scale(1.03);
+    box-shadow: 5px 5px 15px rgb(92, 92, 92);
+}
+.contenedor-header-post{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.contenedor-imagen-usuario-post{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-usuario-post{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.imagen-usuario-post:hover{
+    cursor: pointer;
+}
+
+
+.contenedor-nombre-usuario-post{
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-nombre-usuario-post h1{
+    color: black;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    overflow: hidden;
+}
+
+.contenedor-imagen-post-home{
+    width: 95%;
+    margin: 5px auto;
+}
+
+.imagen-post-home{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-textarea-btn-comentar{
+    width: 95%;
+    margin: 5px auto;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.textarea-post-home{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.btn-comentar-post-home{
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #0559c7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
